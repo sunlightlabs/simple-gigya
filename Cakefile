@@ -18,7 +18,7 @@ build = (callback) ->
     coffee.on 'exit', (code) ->
         callback()? if code is 0
 
-apply_settings = () ->
+apply_settings_and_minify = () ->
     js =''
     fs.readFile './lib/gigya.js', (err, data) ->
         js = data.toString().replace('{% settings.ICON_BASE_URL %}', settings.ICON_BASE_URL)
@@ -30,4 +30,6 @@ apply_settings = () ->
         fs.writeFile('./lib/gigya.min.js', pro.gen_code(ast), (err) -> )
 
 task 'build', 'Build .js and .min.js files with your keys', ->
-    build(apply_settings)
+    build(apply_settings_and_minify)
+    print 'Built files: ./lib/gigya.js, ./lib/gigya.min.js'
+    print "\n"

@@ -7,7 +7,8 @@
   },
   "dependencies": {},
   "devDependencies" : {
-    "uglify-js": "*"
+    "uglify-js": "*",
+    "coffee-script": ">=1.2"
   },
   "license": "MIT"
 }
