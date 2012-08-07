@@ -5,7 +5,8 @@ A simple javascript file to include social sharing buttons via a single containe
 ### Building the JS:
 
 Gigya requires an API key, and this implementation assumes you want
-to host your own sharing icons at a specified location.
+to host your own sharing icons at a specified location,
+"#{settings.ICON_BASE_URL}/#{size}/#{service_name}.png.
 
 The output of the build process will be a script configured for both of those
 variables, as supplied in `settings.coffee`.
