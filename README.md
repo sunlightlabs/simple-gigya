@@ -2,6 +2,12 @@
 
 A simple javascript file to include social sharing buttons via a single container element in HTML
 
+### Requirements:
+
+This script will handle the fetching of the gigya code, but expects to find
+jQuery on your page. It won't complain if not found, just fail silently after
+polling for a while.
+
 ### Building the JS:
 
 Gigya requires an API key, and this implementation assumes you want
