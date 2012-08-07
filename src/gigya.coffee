@@ -31,8 +31,8 @@ Questions? Burning rage? Direct your hatemail to <ddrinkard@sunlightfoundation.c
 
 check = (stuff, callback) =>
     if window.jQuery? and not window.gigya? and not @gigya_queued
-        window.jQuery.getScript "//cdn.gigya.com/js/gigyaGAIntegration.js"
-        window.jQuery.getScript "//cdn.gigya.com/js/socialize.js?apiKey={% settings.GIGYA_KEY %}"
+        window.jQuery.getScript "//cdn.gigya.com/js/socialize.js?apiKey={% settings.GIGYA_KEY %}", (script, status, jqxhr) ->
+            window.jQuery.getScript "//cdn.gigya.com/js/gigyaGAIntegration.js"
         @gigya_queued = true
     checks = stuff.length
     passed_checks = 0
@@ -111,7 +111,7 @@ handle = (el) =>
             type: image
             href: options.linkBack || window.location.href
             src: options.image
-    if not options.size == "24"
+    if options.size != "24"
         options.size = "16"
 
     for service_name in services
