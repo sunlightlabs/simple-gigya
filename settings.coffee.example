@@ -1,0 +1,3 @@
+exports.settings =
+    GIGYA_KEY: ''
+    ICON_BASE_URL: ''

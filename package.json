@@ -1,0 +1,13 @@
+{
+  "name": "Simplegigya",
+  "version": "0.1.0",
+  "author": "Dan Drinkard",
+  "engines": {
+    "node": ">= 0.6"
+  },
+  "dependencies": {},
+  "devDependencies" : {
+    "uglify-js": "*"
+  },
+  "license": "MIT"
+}
