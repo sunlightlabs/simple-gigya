@@ -16,7 +16,7 @@ Usage:
 ...
 <script src="http://path/to/scripts/gigya.min.js"></script>
 
-You can also manually trigger button rendering by:
+You can also manually trigger (or re-trigger) button rendering by:
 - Setting data-gigya to something other than 'auto'
 - Sending an event with data-gigya's value to the element
 Questions? Burning rage? Direct your hatemail to <ddrinkard@sunlightfoundation.com>
