@@ -1,7 +1,7 @@
 {
-  "name": "Simplegigya",
+  "name": "Simple-gigya",
   "version": "0.1.0",
-  "author": "Dan Drinkard",
+  "author": "Dan Drinkard, Sunlight Labs",
   "engines": {
     "node": ">= 0.6"
   },
