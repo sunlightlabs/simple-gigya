@@ -28,7 +28,7 @@ variables, as supplied in `settings.coffee`.
          data-gigya="auto"
          data-services="twitter, twitter-tweet, facebook, reddit"
          data-options="linkBack=http%3A%2F%2Fsunlightfoundation.com&amp;title=The%20Sunlight%20Foundation"
-         data-twitter-tweet-options="defaultText=Check%20out%20Sunlight's%20new%20social%20media%20buttons!&amp;countURL=http%3A%2F%2Fwww.sunlightfoundation.com>
+         data-twitter-tweet-options="defaultText=Check%20out%20Sunlight's%20new%20social%20media%20buttons!&amp;countURL=http%3A%2F%2Fwww.sunlightfoundation.com">
     </div>
     ...
     <script src="http://path/to/scripts/gigya.min.js"></script>
