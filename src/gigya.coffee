@@ -115,10 +115,9 @@ handle = (el) =>
         options.size = "16"
 
     for service_name in services
-        service_options = {}
         service_name = service_name.replace(" ", "")
         opts_attr_name = "data-#{service_name}-options"
-        service_opts = parseOptions(el.attr(opts_attr_name))
+        service_options = @$.extend({}, parseOptions(el.attr(opts_attr_name)))
         widget =
             provider: service_name
             iconImgUp: @service_button_img.replace(
