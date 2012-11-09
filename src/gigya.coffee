@@ -83,51 +83,54 @@ init = () =>
     @els
 
 handle = (el) =>
-    ua = new @gigya.socialize.UserAction()
-    services = el.attr("data-services").split(",")
-    buttons = []
-    params =
-        containerID: el.attr("id")
-        iconsOnly: true
-        layout: "horizontal"
-        noButtonBorder: true
-        shareButtons: buttons
-        shortURLs: "never"
-        showCounts: "none"
-        userAction: ua
-    options = parseOptions el.attr("data-options")
-    if options.title?
-        ua.setTitle options.title
-    else if (ogtitle = @$("meta[property=og\\:title]"))
-        ua.setTitle ogtitle.attr("content")
-    else
-        ua.setTitle @$("title").text()
-    if options.linkBack?
-        ua.setLinkBack options.linkBack
-    if options.description?
-        ua.setDescription options.description
-    if options.image?
-        ua.addMediaItem
-            type: image
-            href: options.linkBack || window.location.href
-            src: options.image
-    if options.size != "24"
-        options.size = "16"
+    try
+        ua = new @gigya.socialize.UserAction()
+        services = el.attr("data-services").split(",")
+        buttons = []
+        params =
+            containerID: el.attr("id")
+            iconsOnly: true
+            layout: "horizontal"
+            noButtonBorder: true
+            shareButtons: buttons
+            shortURLs: "never"
+            showCounts: "none"
+            userAction: ua
+        options = parseOptions el.attr("data-options")
+        if options.title?
+            ua.setTitle options.title
+        else if (ogtitle = @$("meta[property=og\\:title]"))
+            ua.setTitle ogtitle.attr("content")
+        else
+            ua.setTitle @$("title").text()
+        if options.linkBack?
+            ua.setLinkBack options.linkBack
+        if options.description?
+            ua.setDescription options.description
+        if options.image?
+            ua.addMediaItem
+                type: image
+                href: options.linkBack || window.location.href
+                src: options.image
+        if options.size != "24"
+            options.size = "16"
 
-    for service_name in services
-        service_name = service_name.replace(" ", "")
-        opts_attr_name = "data-#{service_name}-options"
-        service_options = @$.extend({}, parseOptions(el.attr(opts_attr_name)))
-        widget =
-            provider: service_name
-            iconImgUp: @service_button_img.replace(
-                "{service}", service_name).replace(
-                "{size}", options.size)
-        buttons.push buttonFactory(widget, service_options)
+        for service_name in services
+            service_name = service_name.replace(" ", "")
+            opts_attr_name = "data-#{service_name}-options"
+            service_options = @$.extend({}, parseOptions(el.attr(opts_attr_name)))
+            widget =
+                provider: service_name
+                iconImgUp: @service_button_img.replace(
+                    "{service}", service_name).replace(
+                    "{size}", options.size)
+            buttons.push buttonFactory(widget, service_options)
 
-    @gigya.socialize.showShareBarUI @$.extend(
-        params,
-        options
-    )
+        @gigya.socialize.showShareBarUI @$.extend(
+            params,
+            options
+        )
+    catch err
+        window.console && console.log("Caught #{err}")
 
 check(['jQuery', 'gigya'], init)
